@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}
+    Notas Guardadas
+{% endblock %}
+
+{% block content %}
+    <h1 class="d-inline-block">Notas</h1>
+    <a href="/notes/new" class="btn btn-outline-success m-2">
+        <i class="bi-plus"></i>
+    </a>
+    <div class="row">
+        {% for note in notes %}
+            <div class="col-3 m-2">
+                <div class="card shadow rounded" style="background-color: {{ note.color }};">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ note.title }}</h5>
+                        <p class="card-text">{{ note.text }}</p>
+                        <a href="#" class="btn btn-outline-primary">
+                            <i class="bi-pencil"></i>
+                        </a>
+                        <form action="/notes/{{ note.id }}/delete" method="post" class="d-inline-block">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-danger">
+                                <i class="bi-trash3"></i>
+                            </button> 
+                        </form>
+                    </div>
+                    <div class="card-footer text-muted">
+                        {{ note.date }}
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+     
+    </div>
+{% endblock %}
