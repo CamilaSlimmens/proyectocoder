@@ -15,15 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Proyecto1.views import delete_note, list_notes
+from Proyecto1.views import delete_note, list_notes, edit_note, list_meetings, new_meeting, delete_meeting, edit_meeting
 from django.conf import settings
 from django.conf.urls.static import static
 from Proyecto1.views import new_note
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
+
     path('notes/', list_notes),
     path('notes/new', new_note),
-    path('notes/<id>/delete', delete_note)
+    path('notes/<id>/delete', delete_note),
+    path('notes/<id>/edit', edit_note),
+
+    path('meetings/', list_meetings),
+    path('meetings/new', new_meeting),
+    path('meetings/<id>/delete', delete_meeting),
+    path('meetings/<id>/edit', edit_meeting)
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
