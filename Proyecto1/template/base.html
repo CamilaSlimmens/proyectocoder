@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,18 +10,23 @@
     <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
     <link href="{% static 'css/notes.css' %}" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    Hola Bienvenido <strong>{{user.username|capfirst}}</strong>
+  </header>
+  
+  <section>
+    <a href="/cerrar">Cerrar Sesion</a>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Organizador</a>
+          <a class="navbar-brand" href="login">Organizador</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Inicio</a>
+                <a class="nav-link" href="/home">Home</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="/notes">Notas</a>
@@ -29,7 +35,7 @@
                 <a class="nav-link" href="/meetings">Reuniones</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="/tasks">Tareas</a>
+                <a class="nav-link" href="/task">Tareas</a>
               </li>
             </ul>
           </div>
@@ -41,3 +47,4 @@
     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
 </body>
 </html>
+

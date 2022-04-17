@@ -23,3 +23,11 @@ class Task(models.Model):
     description = models.CharField(max_length=250)
     deadline = models.DateTimeField()
     done = models.BooleanField()
+
+class Home(models.Model):
+
+    title=models.CharField(max_length=250)
+
+class Login(models.Model):
+    
+    title=models.CharField(max_length=250)

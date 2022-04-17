@@ -1,6 +1,6 @@
 from django.http import HttpResponse
 from django.template.loader import render_to_string
-from Organizador.models import Note, Meeting
+from Organizador.models import Home, Note, Meeting, Task
 from datetime import datetime
 from django.template import RequestContext
 from django.template import *
@@ -76,3 +76,41 @@ def edit_meeting(request, id):
 
 
     return redirect(list_meetings)
+
+def list_task(request):
+    return render(request, 'task.html', { 'task': Task.objects.all() })
+    
+
+def new_task(request):
+    if request.method == "POST":
+        task = Task(title = request.POST.get("title", "New Task"), text = request.POST.get("text", "..."), color = request.POST.get("color", "#FFF"), date = datetime.now())
+        task.save()
+        return redirect(list_task)
+
+
+    return render(request,'new_task.html')
+
+def delete_task(request, id):
+    if request.method == "POST":
+        Task.objects.filter(id = id).delete()
+
+    return redirect(list_task)
+
+def edit_task(request, id):
+    if request.method == "POST":
+        task = Task.objects.get(id = id)
+        task.title = request.POST.get("title", "New Task")
+        task.text = request.POST.get("text", "...")
+        task.color = request.POST.get("color", "#FFF")
+        task.date = datetime.now()
+
+        task.save()
+
+
+    return redirect(list_task)
+
+def home(request):
+    return render(request, 'home.html', { 'home': Home.objects.all() })
+
+
+

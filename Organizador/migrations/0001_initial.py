@@ -3,6 +3,7 @@
 from django.db import migrations, models
 
 
+
 class Migration(migrations.Migration):
 
     initial = True
@@ -41,4 +42,20 @@ class Migration(migrations.Migration):
                 ('done', models.BooleanField()),
             ],
         ),
+        migrations.CreateModel(
+            name='Home',
+            fields=[
+                ('title', models.CharField(max_length=250)),
+            ],
+        ),
+
+        migrations.CreateModel(
+            name='Login',
+            fields=[
+                ('title', models.CharField(max_length=250)),
+            ],
+        ),
     ]
+
+
+
