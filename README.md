@@ -1,6 +1,11 @@
 # proyectocoder
 Organizador para el dia a dia
 
+dejo un breve video de la explicacion en el siguiente link de drive:
+
+https://drive.google.com/file/d/18aRVGsHpq32Z8yWt_Ni8IKbzcxfp_qDo/view?usp=sharing
+
+
 Paso 1:
 
 Notas--> en este model se puede crear las notas que necesitemos tomar, las mismas se visualizaran en un formato de post it, y tendremos la opcion de editar y eliminarlas.
