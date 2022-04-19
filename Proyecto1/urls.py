@@ -16,16 +16,18 @@ Including another URLconf
 from turtle import home
 from django.contrib import admin
 from django.urls import path
-from Proyecto1.views import delete_note, delete_task, list_notes, edit_note, list_meetings, new_meeting, delete_meeting, edit_meeting, list_task, new_task, edit_task, new_note, delete_task, home
+from Proyecto1.views import login, logout, new_note, delete_note, delete_task, list_notes, edit_note, list_meetings, new_meeting, delete_meeting, edit_meeting, list_task, new_task, edit_task, new_note, delete_task, home
 from django.conf import settings
 from django.conf.urls.static import static
-from Proyecto1.views import new_note
 
 
 urlpatterns = [
     path('admin/', admin.site.urls), 
 
-    path('home/', home),
+    path('login/', login),
+    path('logout/', logout),
+
+    path('', home),
 
     path('notes/', list_notes),
     path('notes/new', new_note),
